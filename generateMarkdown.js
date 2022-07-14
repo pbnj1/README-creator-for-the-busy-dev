@@ -1,7 +1,10 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
+ if(license ){
+  return `![thier license answer](https://img.shields.io/badge/license-${license}-blue.svg)`;
 
+ }
   //in here we will want a conditional statement to check if there is a license (wether there is a license
   //should be one of the array questions) If license is there - return the license.  If not there return and 
   // empty string. 
