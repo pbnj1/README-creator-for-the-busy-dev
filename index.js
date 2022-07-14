@@ -85,7 +85,7 @@ inquirer
     response.confirm === response.password
       ? console.log("Success!")
       : console.log("You forgot your password already?!")
-  );
+  );``
 
 const questions = [];
 
