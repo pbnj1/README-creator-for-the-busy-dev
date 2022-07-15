@@ -2,15 +2,15 @@
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-console.log(12)
+
 function renderLicenseBadge(data) {
-  console.log(1, data)
-  if (licenseAnswer === "MIT") {
-    return `![MIT](https://img.shields.io/badge/license-${license}-blue.svg)`;
-  } else if (licensAnswer === "Apache") {
-    return `![Apache](https://img.shields.io/badge/license-${license}-blue.svg)`;
-  } else if (licensAnswer === "GPI") {
-    return `![Apache](https://img.shields.io/badge/license-${license}-blue.svg)`;
+  
+  if (data.license === "MIT") {
+    return `![MIT](https://img.shields.io/badge/license-MIT-blue.svg)`;
+  } else if (data.license === "Apache") {
+    return `![Apache](https://img.shields.io/badge/license-Apache-blue.svg)`;
+  } else if (data.license === "GPI") {
+    return `![Apache](https://img.shields.io/badge/license-GPI-blue.svg)`;
   } else {
     return "";
   }
@@ -26,7 +26,16 @@ function renderLicenseBadge(data) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(data) {
-console.log(data)
+  if (data.license === "MIT") {
+    return `![MIT](https://choosealicense.com/licenses/mit/)`;
+  } else if (data.license === "Apache") {
+    return `![Apache](https://choosealicense.com/licenses/apache-2.0/)`;
+  } else if (data.license === "GPI") {
+    return `![GPI](https://gpilab.com/license/)`;
+  } else {
+    return "";
+  }
+
  
   //in here do the same pattern you used above with the conditional statement
   //this is where you will be returning the license link
@@ -46,7 +55,10 @@ function generateMarkdown(data) {
   // let answers = JSON.stringify(data)
   console.log("hello", data)
 
-  return `## Project Title: 
+  return `
+  ${renderLicenseBadge(data)}
+
+  ## Project Title: 
   ${data.project}
 
   ## Table of Contents
@@ -66,7 +78,8 @@ function generateMarkdown(data) {
   ${data.install}
 
   ## License
-  ${data.license}
+  ${renderLicenseSection(data)}
+  ${renderLicenseLink(data)}
 
   ## Tests
   ${data.tests}
@@ -75,7 +88,7 @@ function generateMarkdown(data) {
   ${data.contribute}
 
   ## Github Link
-  (${data.github})
+  ("${data.github}")
 
   ## Email Me
   ("${data.email}")
