@@ -9,7 +9,7 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 
 //established connection to markdown
-// const markDown = require("generateMarkdown.js")
+const markDown = require('./generateMarkdown.js')
 
 //established connection to path
 const path = require ("path");
@@ -89,9 +89,13 @@ function init() {inquirer
     //Per TA we will need a path to join the file?
     .then((answers) => 
     fs.writeFile("README.md", JSON.stringify(answers, null, `t`), (err) =>
-    err ? console.log(err) : console.log(`Success!`)
+    err ? console.log(err) : console.log(`Success!`) 
    
-    ))}
-
+    )
+  
+    )   
+    // console.log(answers)
+ 
+}
 // Function call to initialize app
 init();
