@@ -11,6 +11,7 @@ const inquirer = require("inquirer");
 //established connection to markdown
 const markDown = require("./generateMarkdown.js");
 
+
 //established connection to path
 const path = require("path");
 
@@ -32,35 +33,13 @@ function init() {
       {
         type: "input",
         message:
-          "Provide a short description of the motivation for your project.",
-        name: "motivation",
+          "Provide a short description of your project.",
+        name: "description",
       },
-      {
-        type: "input",
-        message: "What problem does this project solve?",
-        name: "problem",
-      },
-      {
-        type: "input",
-        message: "What did you learn while doing this project?",
-        name: "learn",
-      },
-
       {
         type: "input",
         message: "What are the steps required to install your project?",
         name: "install",
-      },
-      {
-        type: "input",
-        message:
-          "Provide instructions and examples for use.  Use screenshots as needed. ",
-        name: "instructions",
-      },
-      {
-        type: "input",
-        message: "List any collaborators on your project.",
-        name: "collaborators",
       },
       {
         type: "checkbox",
@@ -70,20 +49,23 @@ function init() {
       },
       {
         type: "input",
-        message:
-          "List any features that you want to highlight from your project.",
-        name: "features",
-      },
-      {
-        type: "input",
-        message:
-          "List any guidelines you might have to allow others to contribute.",
-        name: "guidelines",
-      },
-      {
-        type: "input",
         message: "List any tests you have written for your application.",
         name: "tests",
+      },
+      {
+        type: "input",
+        message: "How can others contribute to this project?",
+        name: "contribute",
+      },
+      {
+        type: "input",
+        message: "What is your Github link",
+        name: "github",
+      },
+      {
+        type: "input",
+        message: "What is your email link",
+        name: "email",
       },
     ])
 
@@ -92,7 +74,7 @@ function init() {
     //.then response with a function that will write the readme file.
     //Per TA we will need a path to join the file?
     .then((answers) => {
-      console.log(answers);
+      // console.log(answers);
       fs.writeFile("README.md", markDown(answers), (err) =>
         err ? console.log(err) : console.log(`Success!`)
       );
