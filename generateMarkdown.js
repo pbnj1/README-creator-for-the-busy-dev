@@ -29,9 +29,6 @@ return `  # ${data.title}
 
 ${renderLicenseBadge(data.license)}
  
-## Link to a video walkthrough of this application:
-${"https://drive.google.com/file/d/1dNwhTu0DgEB9BMUl51htZgECV_jt3dPx/view?usp=sharing"}
-
   ## Table of Contents
   1. [Description](#description)
   2. [Installation](#installation)
