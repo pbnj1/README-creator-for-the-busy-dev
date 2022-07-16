@@ -1,4 +1,5 @@
 
+//function to render the license badge.
 function renderLicenseBadge(license) {
   
   if(license!== "None"){
@@ -8,23 +9,20 @@ function renderLicenseBadge(license) {
     }
   }
   
+//function to render a link about the license they chose.
 function renderLicenseLink(license) {
   if (license === "MIT") {
-    return `https://choosealicense.com/licenses/mit/`;
+    return `Some additional information about your license can be found here: https://choosealicense.com/licenses/mit/`;
   } else if (license === "Apache") {
-    return `https://choosealicense.com/licenses/apache-2.0/`;
+    return `Some additional information about your license can be found here: https://choosealicense.com/licenses/apache-2.0/`;
   } else if (license === "GPI") {
-    return `https://gpilab.com/license/`;
+    return `Some additional information about your license can be found here: https://gpilab.com/license/`;
   } else {
     return "";
   }
 }
 
-function renderLicenseSection(data) {
-  
-}
-
-
+//function to to render the inquirer prompt answers onto the README
 function generateMarkdown(data) {
 
 return `  # ${data.title}
@@ -33,7 +31,7 @@ ${renderLicenseBadge(data.license)}
 
   ## Table of Contents
   1. [Description](#description)
-  2. [Installation](#install)
+  2. [Installation](#installation)
   3. [License](#license)
   4. [Tests](#tests)
   5. [Contributing](#contributing)
@@ -45,11 +43,10 @@ ${renderLicenseBadge(data.license)}
   ${data.description}
 
   ## Installation
-  ${data.install}
+  ${data.installation}
 
   ## License
   ${renderLicenseLink(data.license)}
-
 
   ## Tests
   ${data.tests}
@@ -57,14 +54,15 @@ ${renderLicenseBadge(data.license)}
   ## Contributing
   ${data.contribute}
 
-  ## Github Link
+  ## Github 
   ${data.github}
 
-  ## Email Me
+  ## Email
   ${data.email}`;
 
 }
 
+//exports the generateMarkdown sheet to index.js
 module.exports = generateMarkdown;
 
 

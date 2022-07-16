@@ -8,10 +8,10 @@ const inquirer = require("inquirer");
 //established connection to markdown
 const markDown = require("./generateMarkdown.js");
 
-
 //established connection to path
 const path = require("path");
 
+//function to initialize inquirer prompts 
 function init() {
   inquirer
     .prompt([
@@ -29,7 +29,7 @@ function init() {
       {
         type: "input",
         message: "What are the steps required to install your project?",
-        name: "install",
+        name: "installation",
       },
       {
         type: "list",
@@ -49,17 +49,17 @@ function init() {
       },
       {
         type: "input",
-        message: "What is your Github link",
+        message: "What is your Github link?",
         name: "github",
       },
       {
         type: "input",
-        message: "What is your email link",
+        message: "What is your email address?",
         name: "email",
       },
     ])
 
-
+//function to send write data on a README and send data to markDown
     .then((answers) => {
  
       fs.writeFile("README.md", markDown(answers), (err) =>
